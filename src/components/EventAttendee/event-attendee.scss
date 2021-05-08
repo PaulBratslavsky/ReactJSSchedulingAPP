@@ -1,0 +1,28 @@
+.pb_event-attendee {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: inline-block;
+}
+
+.pb_event-attendee-image {
+  border-radius: 0.75rem;
+  height: 65px;
+  width: 65px;
+  margin-bottom: 6px;
+}
+
+.pb_event_text {
+  font-size: 1rem;
+  margin-bottom: -8px;
+  a {
+    color: #1f1f1e;
+
+  }
+}
+
+.pb_event_subtext {
+  font-size: 12px;
+  color: rgb(132, 10, 10);
+}
+

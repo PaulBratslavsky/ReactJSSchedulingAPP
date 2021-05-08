@@ -1,0 +1,34 @@
+.pb_event-image {
+  height: 275px;
+}
+
+.pb_event-content {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  h2 {
+    color: #11accb;
+  }
+
+  p {
+    color: #5d666e
+  }
+}
+
+.pb_event-date {
+  margin-bottom: 8px;
+
+  span {
+    margin-right: 4px;
+  }
+
+  svg {
+    margin-right: 3px;
+  }
+
+}
+
+.pb_event-attendees {
+}
