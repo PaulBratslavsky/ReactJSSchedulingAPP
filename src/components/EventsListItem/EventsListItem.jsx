@@ -19,29 +19,40 @@ export default function EventsListItem({ title }) {
         </div>
         <div className='col pb_event-content'>
           <div>
-          <h2>{title}</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque,
-            tempore!
-          </p>
-          <div className="pb_event-date">
-            <span>
-              <AiOutlineCalendar />
-              date
-            </span>
-            <span>
-              <BiMap />
-              location
-            </span>
-          </div>
-            <ul className="pb_event-attendees">
-              <EventAttendee />
-              <EventAttendee />
-              <EventAttendee />
-              <EventAttendee />
-              <EventAttendee />
+          <div className='d-flex align-items-between justify-content-between'>
+              <div>
+              <h2>{title}</h2>
+              <div className='pb_event-date'>
+                
+              <span>
+                <AiOutlineCalendar />
+                date
+              </span>
+              <span>
+                <BiMap />
+                location
+              </span>
+              <span>hosted by: Paul</span>
+
+            </div>
+              </div>
+            </div>
+            
+
+
+            
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque,tempore!</p>
+
+            <ul className='pb_event-attendees'>
+              <EventAttendee withName isHost/>
+              <EventAttendee withName/>
+              <EventAttendee withName/>
+              <EventAttendee withName/>
+              <EventAttendee withName/>
+              <EventAttendee withName/>
+
             </ul>
-        </div>
+          </div>
         </div>
       </div>
     </Card>

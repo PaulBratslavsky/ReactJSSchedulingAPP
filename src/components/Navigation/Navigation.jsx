@@ -36,17 +36,17 @@ export default function Navigation() {
           <ul className='navbar-nav align-items-center'>
             <li className='nav-item'>
               <a className='nav-link active' aria-current='page' href='#'>
-                Home
+                Events
               </a>
             </li>
             <li className='nav-item'>
               <a className='nav-link' href='#'>
-                Features
+                Social
               </a>
             </li>
             <li className='nav-item'>
               <a className='nav-link' href='#'>
-                Pricing
+                Appoitments
               </a>
             </li>
             <li className='nav-item mx-2'>
@@ -60,7 +60,7 @@ export default function Navigation() {
           <ul className='navbar-nav align-items-center'>
             <li className='nav-item me-2'>
               <input
-                class='btn btn-secondary btn-sm'
+                class='btn btn-outline-secondary btn-sm'
                 type='button'
                 value='Signup'
               />
