@@ -5,11 +5,15 @@ import "./events-list-item.scss";
 import { AiOutlineCalendar } from "react-icons/ai";
 import { BiMap } from "react-icons/bi";
 import EventAttendee from "../EventAttendee/EventAttendee";
+import Button from "../Button/Button";
 
-export default function EventsListItem({ id, title, date, city, hostedBy, hostPhotoURL, venue, attendees, setSelectedEvent}) {
+export default function EventsListItem({ item, handleSelectedEvent, handleDeleteEvent}) {
+  
+  const { id, title, date, city, hostedBy, hostPhotoURL, venue, attendees, description } = item;
+  
   return (
     <Card>
-      <div className='row'  onClick={() => setSelectedEvent(id)}>
+      <div className='row'  onClick={() => {}}>
         <div className='col-md-4'>
           <img
             className='pb_event-image'
@@ -43,16 +47,18 @@ export default function EventsListItem({ id, title, date, city, hostedBy, hostPh
             </div>
 
             <p>
-              {" "}
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Cumque,tempore!
+             {description}
             </p>
 
             <ul className='pb_event-attendees'>
               { attendees && attendees.map(attendee => <EventAttendee key={attendee.id} {...attendee} />)}
-              
-        
             </ul>
+            <div className="d-flex">
+              <Button value="Edit Event" colorClass="btn-danger" margin="me-2" onClick={() => handleSelectedEvent(item)}/>
+              <Button value="Delete Event" colorClass="btn-secondary" onClick={() => handleDeleteEvent(id)}/>
+            </div>
+
+
           </div>
         </div>
       </div>

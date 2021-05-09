@@ -54,24 +54,26 @@ export const sampleData = [
   },
 ];
 
-export default function Dashboard({ showForm, setShowForm }) {
+export default function Dashboard({ showForm, handleCloseForm, handleSelectedEvent, selectedEvent }) {
   const [events, setEvents] = React.useState([]);
-  const [selectedEvent, setSelectedEvent] = React.useState(null)
 
   React.useEffect(() => {
     setEvents(sampleData);
   }, []);
 
-  console.log(selectedEvent, "SELECTED")
+  function handleDeleteEvent(eventId) {
+    setEvents(events.filter(item => item.id !== eventId))
+  }
+
   return (
     <div className='row'>
       <div className='col-lg-8'>
-        <EventsList events={events} setSelectedEvent={setSelectedEvent} />
+        <EventsList events={events} handleSelectedEvent={handleSelectedEvent} handleDeleteEvent={handleDeleteEvent}/>
       </div>
       <div className='col-lg-4'>
         {showForm && (
           <Pannel>
-            <Form setShowForm={setShowForm} setEvents={setEvents} selectedEvent={selectedEvent} />
+            <Form handleCloseForm={handleCloseForm} setEvents={setEvents} selectedEvent={selectedEvent} key={selectedEvent ? selectedEvent.id : null } />
           </Pannel>
         )}
       </div>

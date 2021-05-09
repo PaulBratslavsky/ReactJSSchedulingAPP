@@ -41,11 +41,15 @@ const mockData = {
   ],
 }
 
-export default function Form({ setShowForm, setEvents }) {
-  const [formData, setFormData] = React.useState(FORM_SCHIMA)
+export default function Form({ handleCloseForm, setEvents, selectedEvent }) {
+  const [formData, setFormData] = React.useState(selectedEvent ?? FORM_SCHIMA)
+
+  // React.useEffect(() => {
+  //  setFormData(selectedEvent ?? FORM_SCHIMA)
+  // },[selectedEvent])
 
   function resetShowForm() {
-    setShowForm();
+    handleCloseForm();
     setFormData(FORM_SCHIMA)
     console.log("reset and close form");
   }
@@ -55,24 +59,39 @@ export default function Form({ setShowForm, setEvents }) {
       ...prevState,
       [e.target.name]: e.target.value
     }))
-    console.log(e.target.name, e.target.value);
+  }
+
+  function createEvent(data) {
+    setEvents(prevState => [...prevState, data])
+  }
+
+  function updateEvent(updatedEvent) {
+    setEvents(prevState => prevState.map(current => current.id === updatedEvent.id ? updatedEvent : current))
   }
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    const dataToSend = {...mockData, ...formData, id: cuid() }    
+    const dataToSend = {...mockData, ...formData, id: formData.id || cuid() }    
 
-    setEvents(prevState => [...prevState, dataToSend])
+    if (selectedEvent) {
+      updateEvent(dataToSend)
+      console.log(dataToSend, "THIS IS THE DATA TO SEND")
+      handleCloseForm();
+    } else {
+      createEvent(dataToSend)
+      console.log(dataToSend, "THIS IS THE DATA TO SEND")
+
+      handleCloseForm();
+    }
+
     setFormData(FORM_SCHIMA)
-
     alert('form submitted!')
   }
 
-  console.log(formData);
-
   return (
     <form onSubmit={handleSubmit}>
+      <h2>{selectedEvent ? "Edit Event" : "Create Event"}</h2>
       <InputField
         name='title'
         label='Event Title'
