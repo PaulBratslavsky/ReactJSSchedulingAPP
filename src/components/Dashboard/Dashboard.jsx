@@ -1,26 +1,80 @@
-import React from 'react'
-import EventsList from '../EventsList/EventsList'
-import Form from '../Form/Form'
-import InputField from '../InputField/InputField'
-import Pannel from '../Pannel/Pannel'
+import React from "react";
+import EventsList from "../EventsList/EventsList";
+import Form from "../Form/Form";
+import Pannel from "../Pannel/Pannel";
 
-export default function Dashboard() {
+export const sampleData = [
+  {
+    id: "1",
+    title: "Trip to Empire State building",
+    date: "2018-03-21",
+    category: "culture",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.",
+    city: "NY, USA",
+    venue: "Empire State Building, 5th Avenue, New York, NY, USA",
+    hostedBy: "Bob",
+    hostPhotoURL: "https://randomuser.me/api/portraits/men/20.jpg",
+    attendees: [
+      {
+        id: "a",
+        name: "Bob",
+        photoURL: "https://randomuser.me/api/portraits/men/20.jpg",
+      },
+      {
+        id: "b",
+        name: "Tom",
+        photoURL: "https://randomuser.me/api/portraits/men/22.jpg",
+      },
+    ],
+  },
+  {
+    id: "2",
+    title: "Trip to Punch and Judy Pub",
+    date: "2018-03-18",
+    category: "drinks",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.",
+    city: "London, UK",
+    venue: "Punch & Judy, Henrietta Street, London, UK",
+    hostedBy: "Tom",
+    hostPhotoURL: "https://randomuser.me/api/portraits/men/22.jpg",
+    attendees: [
+      {
+        id: "a",
+        name: "Bob",
+        photoURL: "https://randomuser.me/api/portraits/men/20.jpg",
+      },
+      {
+        id: "b",
+        name: "Tom",
+        photoURL: "https://randomuser.me/api/portraits/men/22.jpg",
+      },
+    ],
+  },
+];
+
+export default function Dashboard({ showForm, setShowForm }) {
+  const [events, setEvents] = React.useState([]);
+  const [selectedEvent, setSelectedEvent] = React.useState(null)
+
+  React.useEffect(() => {
+    setEvents(sampleData);
+  }, []);
+
+  console.log(selectedEvent, "SELECTED")
   return (
-      <div class='row'>
-          <div class='col-lg-8'>
-            <EventsList />
-          </div>
-          <div class='col-lg-4'>
-            <Pannel>
-              <Form>
-                <InputField name="eventTitle" label="Event Title"/>
-                <InputField name="eventCategory" label="Category"/>
-                <InputField name="eventDescription" label="Description"/>
-                <InputField name="eventCity" label="City"/>
-                <InputField name="eventVenu" label="Venue"/>
-              </Form>
-            </Pannel>
-          </div>
-        </div>
-  )
+    <div className='row'>
+      <div className='col-lg-8'>
+        <EventsList events={events} setSelectedEvent={setSelectedEvent} />
+      </div>
+      <div className='col-lg-4'>
+        {showForm && (
+          <Pannel>
+            <Form setShowForm={setShowForm} setEvents={setEvents} selectedEvent={selectedEvent} />
+          </Pannel>
+        )}
+      </div>
+    </div>
+  );
 }

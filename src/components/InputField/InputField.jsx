@@ -1,10 +1,8 @@
 import React from "react";
 import classNames from 'classnames'
 import './input-field.scss'
-export default function InputField({type = "text", label, name, placeholder}) {
+export default function InputField({type = "text", label, name, placeholder, onChange, value = "", error = false}) {
   const [isFocused, setFocused] = React.useState(false)
-  const [value, setValue] = React.useState('')
-  const [error, setError] = React.useState(true)
 
   function focusedClass() {
     if (!isFocused && value.length === 0) return "pb_label-down"
@@ -26,6 +24,8 @@ export default function InputField({type = "text", label, name, placeholder}) {
         placeholder={placeholder}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
+        onChange={onChange}
+        value={value}
       />
       { label && <label htmlFor={name} className={classNames(focusedClass())}>{label}</label> }
     </div>
