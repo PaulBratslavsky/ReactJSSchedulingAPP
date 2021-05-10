@@ -1,9 +1,6 @@
 import React from 'react'
+import SplashScreen from '../components/SplashScreen/SplashScreen'
 
 export default function Home() {
-  return (
-    <div>
-      <h1>Home</h1>
-    </div>
-  )
+  return <SplashScreen />
 }

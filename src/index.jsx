@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from 'react-router-dom';
 import "./scss/index.scss";
-import App from "./layout/App";
+import App from './App'
 import reportWebVitals from "./reportWebVitals";
 
 const routeElement = document.getElementById("root");
@@ -19,7 +19,7 @@ function render() {
 }
 
 if (module.hot) {
-  module.hot.accept("./layout/App.jsx", function () {
+  module.hot.accept("./App.jsx", function () {
     setTimeout(render);
   });
 }

@@ -114,10 +114,10 @@ export default function Form({ handleCloseForm, setEvents, selectedEvent }) {
       <InputField name='venue' label='Venue' onChange={handleChange} value={formData.venue}/>
       <DateField name='date' onChange={handleChange} value={formData.date}/>
       <div className='d-flex justify-content-between'>
-        <Button type='submit' value='Submit' colorClass='btn-info' />
+        <Button type='submit' value='Submit' addClass='btn-info' />
         <Button
           value='x'
-          colorClass='btn-secondary'
+          addClass='btn-secondary'
           onClick={resetShowForm}
         />
       </div>

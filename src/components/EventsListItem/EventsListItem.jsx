@@ -54,8 +54,8 @@ export default function EventsListItem({ item, handleSelectedEvent, handleDelete
               { attendees && attendees.map(attendee => <EventAttendee key={attendee.id} {...attendee} />)}
             </ul>
             <div className="d-flex">
-              <Button value="Edit Event" colorClass="btn-danger" margin="me-2" onClick={() => handleSelectedEvent(item)}/>
-              <Button value="Delete Event" colorClass="btn-secondary" onClick={() => handleDeleteEvent(id)}/>
+              <Button value="Edit Event" addClass=" btn-sm btn-danger" margin="me-2" onClick={() => handleSelectedEvent(item)}/>
+              <Button value="Delete Event" addClass="btn-sm btn-secondary" onClick={() => handleDeleteEvent(id)}/>
             </div>
 
 

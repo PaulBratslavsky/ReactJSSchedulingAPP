@@ -3,7 +3,6 @@ import EventsList from "../components/EventsList/EventsList";
 import Form from "../components/Form/Form";
 import Pannel from "../components/Pannel/Pannel";
 
-
 export const sampleData = [
   {
     id: "1",
@@ -55,7 +54,12 @@ export const sampleData = [
   },
 ];
 
-export default function Events({ showForm, handleCloseForm, handleSelectedEvent, selectedEvent }) {
+export default function Events({
+  showForm,
+  handleCloseForm,
+  handleSelectedEvent,
+  selectedEvent,
+}) {
   const [events, setEvents] = React.useState([]);
 
   React.useEffect(() => {
@@ -63,21 +67,32 @@ export default function Events({ showForm, handleCloseForm, handleSelectedEvent,
   }, []);
 
   function handleDeleteEvent(eventId) {
-    setEvents(events.filter(item => item.id !== eventId))
-    handleCloseForm()
+    setEvents(events.filter((item) => item.id !== eventId));
+    handleCloseForm();
   }
 
   return (
-    <div className='row'>
-      <div className='col-lg-8'>
-        <EventsList events={events} handleSelectedEvent={handleSelectedEvent} handleDeleteEvent={handleDeleteEvent}/>
-      </div>
-      <div className='col-lg-4'>
-        {showForm && (
-          <Pannel>
-            <Form handleCloseForm={handleCloseForm} setEvents={setEvents} selectedEvent={selectedEvent} key={selectedEvent ? selectedEvent.id : null } />
-          </Pannel>
-        )}
+    <div className='container my-3'>
+      <div className='row'>
+        <div className='col-lg-8'>
+          <EventsList
+            events={events}
+            handleSelectedEvent={handleSelectedEvent}
+            handleDeleteEvent={handleDeleteEvent}
+          />
+        </div>
+        <div className='col-lg-4'>
+          {showForm && (
+            <Pannel>
+              <Form
+                handleCloseForm={handleCloseForm}
+                setEvents={setEvents}
+                selectedEvent={selectedEvent}
+                key={selectedEvent ? selectedEvent.id : null}
+              />
+            </Pannel>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -14,7 +14,7 @@ export default function Navigation({setShowForm}) {
     <nav className='navbar pb_navigation navbar-expand-lg navbar-light sticky-top bg-white'>
       <div className='container'>
         <Link className='navbar-brand' to='/'>
-          Navbar
+          Evento
         </Link>
         <button
           className='navbar-toggler'
@@ -35,11 +35,6 @@ export default function Navigation({setShowForm}) {
           id='navbarNavDropdown'
         >
           <ul className='navbar-nav align-items-center'>
-          <li className='nav-item'>
-              <NavLink className='nav-link' exact to='/'>
-                Home
-              </NavLink>
-            </li>
             <li className='nav-item'>
               <NavLink className='nav-link' to='/events'>
                 Events
