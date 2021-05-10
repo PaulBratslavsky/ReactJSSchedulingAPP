@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, NavLink } from  "react-router-dom"
 import useToggle from "../../hooks/useToggle";
 import "./navigation.scss";
 
@@ -12,9 +13,9 @@ export default function Navigation({setShowForm}) {
   return (
     <nav className='navbar pb_navigation navbar-expand-lg navbar-light sticky-top bg-white'>
       <div className='container'>
-        <a className='navbar-brand' href='/'>
+        <Link className='navbar-brand' to='/'>
           Navbar
-        </a>
+        </Link>
         <button
           className='navbar-toggler'
           type='button'
@@ -34,20 +35,15 @@ export default function Navigation({setShowForm}) {
           id='navbarNavDropdown'
         >
           <ul className='navbar-nav align-items-center'>
+          <li className='nav-item'>
+              <NavLink className='nav-link' exact to='/'>
+                Home
+              </NavLink>
+            </li>
             <li className='nav-item'>
-              <a className='nav-link active' aria-current='page' href='/'>
+              <NavLink className='nav-link' to='/events'>
                 Events
-              </a>
-            </li>
-            <li className='nav-item'>
-              <a className='nav-link' href='/'>
-                Social
-              </a>
-            </li>
-            <li className='nav-item'>
-              <a className='nav-link' href='/'>
-                Appoitments
-              </a>
+              </NavLink>
             </li>
             <li className='nav-item mx-2'>
               <input

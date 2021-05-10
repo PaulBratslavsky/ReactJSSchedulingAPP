@@ -1,7 +1,8 @@
 import React from "react";
-import EventsList from "../EventsList/EventsList";
-import Form from "../Form/Form";
-import Pannel from "../Pannel/Pannel";
+import EventsList from "../components/EventsList/EventsList";
+import Form from "../components/Form/Form";
+import Pannel from "../components/Pannel/Pannel";
+
 
 export const sampleData = [
   {
@@ -54,7 +55,7 @@ export const sampleData = [
   },
 ];
 
-export default function Dashboard({ showForm, handleCloseForm, handleSelectedEvent, selectedEvent }) {
+export default function Events({ showForm, handleCloseForm, handleSelectedEvent, selectedEvent }) {
   const [events, setEvents] = React.useState([]);
 
   React.useEffect(() => {
@@ -63,6 +64,7 @@ export default function Dashboard({ showForm, handleCloseForm, handleSelectedEve
 
   function handleDeleteEvent(eventId) {
     setEvents(events.filter(item => item.id !== eventId))
+    handleCloseForm()
   }
 
   return (
