@@ -1,5 +1,6 @@
 import React from "react";
-import EventsList from "../components/EventsList/EventsList";
+import GenericRenderList from "../components/GenericRenderList/GenericChildrenList";
+import EventsListItem from "../components/EventsListItem/EventsListItem";
 import Form from "../components/Form/Form";
 import Pannel from "../components/Pannel/Pannel";
 
@@ -75,11 +76,9 @@ export default function Events({
     <div className='container my-3'>
       <div className='row'>
         <div className='col-lg-8'>
-          <EventsList
-            events={events}
-            handleSelectedEvent={handleSelectedEvent}
-            handleDeleteEvent={handleDeleteEvent}
-          />
+         <GenericRenderList data={events} render={(item) => 
+            <EventsListItem key={item.id} item={item} handleSelectedEvent={handleSelectedEvent} handleDeleteEvent={handleDeleteEvent}/>
+         }/>
         </div>
         <div className='col-lg-4'>
           {showForm && (

@@ -40,6 +40,11 @@ export default function Navigation({setShowForm}) {
                 Events
               </NavLink>
             </li>
+            <li className='nav-item'>
+              <NavLink className='nav-link' to='/posts'>
+                Posts
+              </NavLink>
+            </li>
             <li className='nav-item mx-2'>
               <input
                 className='btn btn-warning btn-sm'
