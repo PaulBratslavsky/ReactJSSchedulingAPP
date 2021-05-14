@@ -16,7 +16,7 @@ export const useFetch = (query) => {
       case "FETCHED":
         return { ...initialState, status: "fetched", data: action.payload };
       case "FETCH_ERROR":
-        return { ...initialState, status: "error", data: action.payload };
+        return { ...initialState, status: "error", error: action.payload };
       default:
         return state;
     }

@@ -82,7 +82,7 @@ export default function Events({
         </div>
         <div className='col-lg-4'>
           {showForm && (
-            <Pannel>
+            <Pannel className="sticky">
               <Form
                 handleCloseForm={handleCloseForm}
                 setEvents={setEvents}
