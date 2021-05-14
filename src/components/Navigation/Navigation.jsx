@@ -16,7 +16,7 @@ export default function Navigation({setShowForm}) {
     <nav className='navbar pb_navigation navbar-expand-lg navbar-light sticky-top bg-white'>
       <div className='container'>
         <Link className='navbar-brand' to='/'>
-          Evento
+        nuovoevento
         </Link>
         <button
           className='navbar-toggler'

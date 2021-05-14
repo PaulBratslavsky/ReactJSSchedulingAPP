@@ -8,7 +8,7 @@ export default function SplashScreen() {
   return (
     <div className={styles.pb_splash}>
       <div>
-        <h1>Evento</h1>
+        <h1>nuovoevento</h1>
         <h3>Your Cool Event Start Here</h3>
         <Button value='Schedule Something Cool' addClass="btn-info btn-lg" onClick={() => history.push("/posts")} />
       </div>
