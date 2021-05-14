@@ -6,6 +6,8 @@ import "./navigation.scss";
 export default function Navigation({setShowForm}) {
   const [toglling, attrs] = useToggle();
 
+  console.log(attrs)
+
   function addClass(toggle) {
     return toggle ? "show" : "";
   }
@@ -35,24 +37,24 @@ export default function Navigation({setShowForm}) {
           id='navbarNavDropdown'
         >
           <ul className='navbar-nav align-items-center'>
-            <li className='nav-item'>
+            {/* <li className='nav-item'>
               <NavLink className='nav-link' to='/events'>
                 Events
               </NavLink>
-            </li>
+            </li> */}
             <li className='nav-item'>
               <NavLink className='nav-link' to='/posts'>
                 Posts
               </NavLink>
             </li>
-            <li className='nav-item mx-2'>
+            {/* <li className='nav-item mx-2'>
               <input
                 className='btn btn-warning btn-sm'
                 type='button'
                 value='Created Event'
                 onClick={setShowForm}
               />
-            </li>
+            </li> */}
           </ul>
           <ul className='navbar-nav align-items-center'>
             <li className='nav-item me-2'>

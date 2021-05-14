@@ -6,8 +6,10 @@ import { useFetch } from "../hooks/useFetch";
 import Pannel from "../components/Pannel/Pannel";
 import Avatar from "../components/Avatar/Avatar";
 
+const URL_HEROKU = "https://courseshareapi.herokuapp.com"
+// const URL_LOCAL = "http://localhost:1337"
 export default function Posts() {
-  const { status, error, data } = useFetch("http://localhost:1337/articles");
+  const { status, error, data } = useFetch(URL_HEROKU + "/articles");
 
   if (error) return <p>Ops. Something went wrong.</p>;
   if (status !== "fetched") return <p>data is loading</p>;
@@ -25,7 +27,7 @@ export default function Posts() {
                   <div className='col'>
                     <img
                       style={{ height: "100%" }}
-                      src={item.image.formats.thumbnail.url}
+                      src={item.image.formats.medium.url}
                       alt='featured'
                     />
                   </div>
@@ -34,7 +36,7 @@ export default function Posts() {
                     <Avatar  src={item.users_permissions_user.avatar.formats.thumbnail.url}
                       alt='Author' />
                     <h1>{item.title}</h1>
-                    <p>{item.content.slice(0,120)}... <a href="#">read more</a></p>
+                    <p>{item.content.slice(0,120)}... <a href="/">read more</a></p>
                   </div>
                 </div>
               </Card>
